@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#frame_id{
+			background-color: cyan;
+			width: 400px;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left:-200px;
+			margin-top: -100px;
+			text-align: center;
+
+		}
+		#title_id{
+			font-size: 15px;
+			color: red;
+		}
+
+		input{
+			margin-top: 10px;
+		}
+
+		button{
+			width: 100px;
+			margin-top: 30px;
+		}
+
+
+
+
+	</style>
+
+	<script type="text/javascript">
+
+		function lightMode() {
+			var frameViewStyle = getStyle('frame_id');
+			frameViewStyle.backgroundColor = "cyan";
+			frameViewStyle.style.color = "black";
+
+			var bodyViewStyle = document.getElementById('Body_id').style;
+			bodyViewStyle.backgroundColor = "white";
+			bodyViewStyle.color = "black";
+
+			document.getElementById('login_id').style.color = "black";
+		}
+
+		function darkMode() {
+			var frameViewStyle = document.getElementById('frame_id').style;
+			frameViewStyle.backgroundColor = "black";
+			frameViewStyle.color = "white";
+
+			var bodyViewStyle = document.getElementById('Body_id').style
+			bodyViewStyle.backgroundColor = "black";
+			document.getElementById('Body_id').style.color = "white";
+			document.getElementById('login_id').style.color = "white";
+			document.getElementById('title_id').style.color = "white";
+		}
+
+		function getStyle(viewId){
+			return document.getElementById(viewId).style;
+		}
+
+		function login() {
+			var accountName = document.getElementById('user_name_id').value;
+			var passwordName = document.getElementById('user_password_id').value;
+
+			if (accountName == "Bryan" && passwordName == "123") {
+				location.href = "4partdesign.html";
+			}else{
+				alert("Your password or account name is not correct, please try again");
+				document.getElementById('user_name_id').value = "";
+				document.getElementById('user_password_id').value = "";
+
+			}
+		}
+	</script>
+</head>
+<body id="Body_id">
+	<div id="frame_id">
+		<div id="title_id">TYPE IN PASSWORD</div>
+
+		<div><input type="" id="user_name_id" placeholder="ACCOUNT NAME"></div>
+		<div><input type="password" id="user_password_id" placeholder="ACCOUNT PASSWORD"></div>
+
+
+		<button onclick="login()" id="login_id">LOGIN</button>
+		
+	</div>
+
+	<button onclick="lightMode()">Light Mode</button>
+
+	<button onclick="darkMode()">Dark Mode</button>
+
+</body>
+</html>
